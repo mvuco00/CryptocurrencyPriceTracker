@@ -8,3 +8,7 @@ Also, it's possible to filter data using a search bar.
 <img src="images/home.png" width="300">
 <img src="images/search.png" width="300">
 </p>
+
+## Built with
+
+- ReactJS

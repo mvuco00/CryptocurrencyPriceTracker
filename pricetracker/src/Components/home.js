@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Currency from "./currency";
 
 const Home = () => {
   const [data, setData] = useState([]);
+  const [search, setSearch] = useState("");
   useEffect(() => {
     axios
       .get(
@@ -14,16 +16,29 @@ const Home = () => {
       })
       .catch((err) => console.log(err));
   }, []);
+
+  const handleChange = (e) => {
+    setSearch(e.target.value);
+  };
+
+  const filteredData = data.filter((el) =>
+    el.name.toLowerCase().includes(search.toLowerCase())
+  );
+  console.log(filteredData);
   return (
     <div className="home">
       <div className="search">
         <form>
-          <input type="text" placeholder="Enter currency" />
+          <input
+            type="text"
+            placeholder="Enter currency"
+            onChange={handleChange}
+          />
         </form>
       </div>
       <div className="data">
-        {data.map((el) => (
-          <div key={el.id}>{el.name} </div>
+        {filteredData.map((el) => (
+          <Currency key={el.id} el={el} />
         ))}
       </div>
     </div>

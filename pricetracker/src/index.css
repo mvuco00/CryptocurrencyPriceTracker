@@ -11,3 +11,20 @@ body {
   display: flex;
   flex-direction: column;
 }
+
+.block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.block-data {
+  display: flex;
+}
+
+.red {
+  color: red;
+}
+.green {
+  color: green;
+}

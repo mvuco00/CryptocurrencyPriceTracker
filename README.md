@@ -18,3 +18,4 @@ Also, it's possible to filter data using a search bar.
 ## Built with
 
 - ReactJS
+- Material-UI

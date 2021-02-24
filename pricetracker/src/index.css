@@ -7,24 +7,108 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.data {
+.home {
   display: flex;
   flex-direction: column;
-}
-
-.block {
-  display: flex;
   justify-content: center;
   align-items: center;
 }
-
-.block-data {
+.container {
   display: flex;
+  justify-content: center;
+}
+
+.search {
+  width: 370px;
+  background-color: white;
+  border: 1px solid gray;
+  margin-top: 50px;
+  margin-bottom: 40px;
+  padding: 13px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.search input {
+  width: 300px;
+  border: none;
+}
+
+input:focus {
+  outline: none;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  height: 80px;
+  border-bottom: 1px solid #d7d7d7;
+  width: 900px;
+}
+.x {
+  height: 60px;
+}
+.x p {
+  font-weight: bold;
+}
+.row p {
+  margin: 0;
+}
+
+.imgsymb {
+  display: flex;
+  align-items: center;
+  padding-right: 24px;
+
+  min-width: 300px;
+}
+
+.imgsymb h1 {
+  font-size: 16px;
+  width: 150px;
+}
+
+.imgsymb img {
+  height: 30px;
+  width: 30px;
+  margin-right: 10px;
+}
+
+.symbol {
+  text-transform: uppercase;
+  color: gray;
+}
+
+.data2 {
+  display: flex;
+  text-align: right;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.price {
+  width: 110px;
+}
+
+.volume {
+  width: 155px;
+}
+
+.marketcap {
+  width: 200px;
+}
+
+.percent {
+  width: 100px;
 }
 
 .red {
-  color: red;
+  color: #f00606;
 }
+
 .green {
-  color: green;
+  color: #11d811;
 }

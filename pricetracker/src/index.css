@@ -40,6 +40,8 @@ body {
   width: 300px;
   border: none;
   background-color: rgb(19, 19, 19);
+  color: white;
+  font-size: 15px;
 }
 
 input:focus {

@@ -5,6 +5,8 @@ import Search from "./search";
 
 const Home = () => {
   const [data, setData] = useState([]);
+  const [open, setOpen] = useState(false);
+  const [filtered, setFiltered] = useState(data);
   const [search, setSearch] = useState("");
   useEffect(() => {
     axios
@@ -18,13 +20,45 @@ const Home = () => {
       .catch((err) => console.log(err));
   }, []);
 
-  const filteredData = data.filter((el) =>
-    el.name.toLowerCase().includes(search.toLowerCase())
-  );
+  useEffect(() => {
+    setFiltered(
+      data.filter((el) => el.name.toLowerCase().includes(search.toLowerCase()))
+    );
+  }, [search, data]);
 
+  const handlePositive = () => {
+    setFiltered(data.filter((el) => el.price_change_percentage_24h > 0));
+    setOpen(false);
+  };
+  const handleNegative = () => {
+    setFiltered(data.filter((el) => el.price_change_percentage_24h < 0));
+    setOpen(false);
+  };
+  const handleReset = () => {
+    setFiltered(data);
+    setOpen(false);
+  };
+  const handleOpen = () => {
+    setOpen(!open);
+  };
   return (
     <div className="home">
-      <Search setSearch={setSearch} />
+      <div className="filterandsearch">
+        <Search setSearch={setSearch} />
+
+        <div className="dropdown">
+          <button onClick={handleOpen} className="dropbtn">
+            PRICE CHANGE
+          </button>
+          {open ? (
+            <div id="myDropdown" className="dropdown-content">
+              <button onClick={handlePositive}>Positive change</button>
+              <button onClick={handleNegative}>Negative change</button>
+              <button onClick={handleReset}>Reset</button>
+            </div>
+          ) : null}
+        </div>
+      </div>
 
       <div className="container">
         <div className="row x">
@@ -34,15 +68,13 @@ const Home = () => {
           <div className="data2">
             <p className="price">Price</p>
             <p className="volume">24h Volume</p>
-
             <p className="percent">Price change</p>
-
             <p className="marketcap">Mkt Cap</p>
           </div>
         </div>
       </div>
       <div className="data">
-        {filteredData.map((el, index) => (
+        {filtered.map((el, index) => (
           <Currency
             key={el.id}
             name={el.name}

@@ -5,8 +5,9 @@ All of the data is fetched using a [public API.](https://www.coingecko.com/en/ap
 Also, it's possible to filter data using a search bar.
 
 <p float="left">
-<img src="images/home.png" width="300">
-<img src="images/search.png" width="300">
+<img src="images/home.png" width="400">
+<img src="images/search.png" width="400">
+<img src="images/filter.png" width="400">
 </p>
 
 ## Built with
